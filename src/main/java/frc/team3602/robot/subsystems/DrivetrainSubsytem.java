@@ -15,11 +15,15 @@ import com.ctre.phoenix6.mechanisms.swerve.SwerveRequest;
 
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.Subsystem;
+import frc.team3602.robot.Constants;
+import frc.team3602.robot.Telemetry;
 
 public class DrivetrainSubsytem extends SwerveDrivetrain implements Subsystem {
   public final SwerveRequest.FieldCentric fieldCentricDrive = new SwerveRequest.FieldCentric().withIsOpenLoop(true);
   public final SwerveRequest.SwerveDriveBrake swerveDriveBrake = new SwerveRequest.SwerveDriveBrake();
   public final SwerveRequest.PointWheelsAt pointWheelsAt = new SwerveRequest.PointWheelsAt();
+
+  public final Telemetry telemetryLogger = new Telemetry(Constants.DrivetrainConstants.MAX_SPEED);
 
   public DrivetrainSubsytem(SwerveDrivetrainConstants drivetrainConstants, double odometryUpdateFrequency,
       SwerveModuleConstants... moduleConstants) {
@@ -39,5 +43,4 @@ public class DrivetrainSubsytem extends SwerveDrivetrain implements Subsystem {
   public Command applyRequest(Supplier<SwerveRequest> requestSupplier) {
     return run(() -> this.setControl(requestSupplier.get()));
   }
-
 }

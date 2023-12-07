@@ -13,6 +13,7 @@ import com.ctre.phoenix6.mechanisms.swerve.SwerveModuleConstantsFactory;
 import com.ctre.phoenix6.mechanisms.swerve.SwerveModuleConstants.SwerveModuleSteerFeedbackType;
 
 import edu.wpi.first.math.util.Units;
+
 import frc.team3602.robot.subsystems.DrivetrainSubsytem;
 
 public final class Constants {

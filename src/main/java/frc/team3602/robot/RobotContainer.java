@@ -34,6 +34,8 @@ public class RobotContainer {
     configDefaultCommands();
     configButtonBindings();
     configAutonomous();
+
+    drivetrainSubsys.registerTelemetry(drivetrainSubsys.telemetryLogger::telemeterize);
   }
 
   private void configDefaultCommands() {
